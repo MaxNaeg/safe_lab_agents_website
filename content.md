@@ -3,7 +3,7 @@
 
 # Safe Lab Agents: Sandboxed AI Agents for Lab Work
 
-Safely run an AI agent inside a sandbox to control a scientific experiment. Define the interface to the experiment easily in a few lines. Automatically obtain electronic lab notebook documentation of the entire runs. Supports Claude Code and OpenClaw as agent frameworks.
+Safely run an AI agent inside a sandbox to control a scientific experiment or a numerical simulation. Define the interface to the experiment easily in a few lines. Automatically obtain electronic lab notebook documentation of the entire runs. Supports Claude Code and OpenClaw as agent frameworks.
 
 By Maximilian Nägele and Florian Marquardt. Made at the [Max Planck Institute for the Science of Light](https://mpl.mpg.de/divisions/marquardt-division/research) in Germany. Open source and forever free. First release July 2026.
 
