@@ -51,4 +51,7 @@ Conveniently browse both the full AI agent exploration history, as well as all e
 
 [github.com/MaxNaeg/safe_lab_agents](https://github.com/MaxNaeg/safe_lab_agents/)
 
+## Join the conversation
+
+[Safe Lab Agents discussions forum](https://github.com/MaxNaeg/safe_lab_agents/discussions)
 
