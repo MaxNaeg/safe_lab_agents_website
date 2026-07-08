@@ -265,6 +265,19 @@ def render_learn_more(tokens: list[dict]) -> dict:
         "learn_body": "\n      ".join(parts),
     }
 
+def render_discussion(tokens: list[dict]) -> dict:
+    title = "Join the discussion"
+    parts: list[str] = []
+    for t in tokens:
+        if t["kind"] == "h2":
+            title = t["text"]
+        elif t["kind"] == "p":
+            parts.append(f'<p class="discussion__text">{inline_md(t["text"])}</p>')
+    return {
+        "discussion_title": inline_md(title),
+        "discussion_body": "\n      ".join(parts),
+    }
+
 
 # ---------- main -----------------------------------------------------------
 
@@ -280,7 +293,8 @@ def build() -> None:
     steps_tok = tokenize(raw_sections[1])
     video_tok = tokenize(raw_sections[2])
     learn_tok = tokenize(raw_sections[3]) if len(raw_sections) > 3 else []
-
+    discussion_tok = tokenize(raw_sections[4]) if len(raw_sections) > 4 else []
+    
     ctx: dict[str, str] = {
         "site_title": SITE_TITLE,
         "site_description": SITE_DESCRIPTION,
@@ -289,6 +303,7 @@ def build() -> None:
     ctx["steps"] = render_steps(steps_tok)
     ctx.update(render_video(video_tok))
     ctx.update(render_learn_more(learn_tok))
+    ctx.update(render_discussion(discussion_tok))
 
     tpl = TEMPLATE.read_text(encoding="utf-8")
     out = re.sub(r"\{\{(\w+)\}\}", lambda m: ctx.get(m.group(1), ""), tpl)
