@@ -115,7 +115,7 @@ ul, ol { list-style: none; padding: 0; margin: 0; }
 
 .hero__figure {
   margin: 2rem 0 0;
-  width: var(--fig-w, 60%);
+  width: 100%;               /* full width on phones */
 }
 .hero__figure img { width: 100%; height: auto; }
 .hero__figure--centered {
@@ -324,4 +324,5 @@ ul, ol { list-style: none; padding: 0; margin: 0; }
   }
   .step__figure { margin-top: 0; }
   .steps__list { gap: 6rem; }
+  .hero__figure { width: var(--fig-w, 60%); }   /* honor per-figure width on wider screens */
 }
