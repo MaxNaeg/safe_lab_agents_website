@@ -3,6 +3,7 @@
   --bg:        #000000;
   --bg-soft:   #0a0a0a;
   --fg:        #ffffff;
+  --muted:     rgba(255,255,255,0.5);   /* grey for secondary text */
   --accent:    #ff7a1a;         /* orange for step numbers + CTA */
   --accent-hi: #ff9448;
   --border:    rgba(255,255,255,0.10);
@@ -294,7 +295,7 @@ ul, ol { list-style: none; padding: 0; margin: 0; }
   border-top: 1px solid var(--border);
   padding: 2.5rem var(--pad);
   text-align: center;
-  color: var(--fg);
+  color: var(--muted);
   font-size: 1.5rem;
 }
 .footer p { margin: 0.25rem 0; }
