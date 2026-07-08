@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Safe Lab Agents</title>
+  <meta name="description" content="Safely run AI agents inside a sandbox to control scientific experiments." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__bg" aria-hidden="true">
+      <img src="assets/splash_background.jpg" alt="" />
+    </div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <h1 class="hero__title">Safe Lab Agents: Sandboxed AI Agents for Lab Work</h1>
+      <p class="hero__text">Safely run an AI agent inside a sandbox to control a scientific experiment. Define the interface to the experiment easily in a few lines. Automatically obtain electronic lab notebook documentation of the entire runs. Supports Claude Code and OpenClaw as agent frameworks.</p>
+      <p class="hero__text">By Maximilian Nägele and Florian Marquardt. Made at the <a href="https://mpl.mpg.de/divisions/marquardt-division/research" target="_blank" rel="noopener">Max Planck Institute for the Science of Light</a> in Germany. Open source and forever free. First release July 2026.</p>
+      <figure class="hero__figure hero__figure--centered" style="--fig-w: 50%"><img src="assets/fig_main_points.png" alt="" /></figure>
+    </div>
+  </header>
+
+  <!-- STEPS -->
+  <section id="steps" class="steps">
+    <h2 class="section__title">How it works</h2>
+    <ol class="steps__list">
+      <li class="step">
+        <div class="step__num">1</div>
+        <div class="step__body">
+          <h3 class="step__title">Install the package</h3>
+          <p class="step__text">Simply use pip install. Also needed: Docker or Podman (for the sandboxing) and an account/API key for Claude Code or Open Claw.</p>
+          <pre class="step__terminal"><code>pip install safe-lab-agents</code></pre>
+        </div>
+        
+      </li>
+      <li class="step">
+        <div class="step__num">2</div>
+        <div class="step__body">
+          <h3 class="step__title">Write an interface using simple python functions</h3>
+          
+        </div>
+        <div class="step__figure"><img src="assets/tools_code.jpg" alt="" /></div>
+      </li>
+      <li class="step">
+        <div class="step__num">3</div>
+        <div class="step__body">
+          <h3 class="step__title">Launch the agent</h3>
+          <pre class="step__terminal"><code>agent start --task &quot;Characterize this setup!&quot;</code></pre>
+          <p class="step__text">The setup wizard guides you through a few questions, installs everything needed inside the agent's sandbox, and launches the AI agent, here in autonomous mode.</p>
+        </div>
+        <div class="step__figure"><img src="assets/fig_agent_start.jpg" alt="" /></div>
+      </li>
+      <li class="step">
+        <div class="step__num">4</div>
+        <div class="step__body">
+          <h3 class="step__title">Browse the results</h3>
+          <p class="step__text">Conveniently browse both the full AI agent exploration history, as well as all experimental data, analysis scripts, and resulting figures. Easy export as an electronic lab notebook (.eln) document.</p>
+        </div>
+        <div class="step__figure"><img src="assets/fig_browsing_auto_log.jpg" alt="" /></div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- VIDEO (hidden until we have the demo video)
+  <section id="video" class="video">
+    <h2 class="section__title">See it in action</h2>
+    <div class="video__frame">
+      <video controls poster="assets/video-poster.jpg"><source src="assets/demo.mp4" type="video/mp4" /></video>
+    </div>
+  </section>
+  -->
+
+
+  <!-- LEARN MORE -->
+  <section id="learn" class="learn">
+    <h2 class="section__title">Learn more</h2>
+    <p class="learn__text"><a href="https://github.com/MaxNaeg/safe_lab_agents/" target="_blank" rel="noopener">github.com/MaxNaeg/safe_lab_agents</a></p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© Maximilian Nägele and Florian Marquardt at the Max Planck Institute for the Science of Light. First release July 2026.</p>
+  </footer>
+
+</body>
+</html>

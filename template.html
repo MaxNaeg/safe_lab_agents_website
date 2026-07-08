@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{site_title}}</title>
+  <meta name="description" content="{{site_description}}" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__bg" aria-hidden="true">
+      <img src="{{hero_bg}}" alt="" />
+    </div>
+    <div class="hero__overlay" aria-hidden="true"></div>
+
+    <div class="hero__content">
+      <h1 class="hero__title">{{hero_title}}</h1>
+      {{hero_body}}
+    </div>
+  </header>
+
+  <!-- STEPS -->
+  <section id="steps" class="steps">
+    <h2 class="section__title">How it works</h2>
+    <ol class="steps__list">
+      {{steps}}
+    </ol>
+  </section>
+
+  <!-- VIDEO (hidden until we have the demo video)
+  <section id="video" class="video">
+    <h2 class="section__title">{{video_title}}</h2>
+    <div class="video__frame">
+      {{video_embed}}
+    </div>
+  </section>
+  -->
+
+
+  <!-- LEARN MORE -->
+  <section id="learn" class="learn">
+    <h2 class="section__title">{{learn_title}}</h2>
+    {{learn_body}}
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© Maximilian Nägele and Florian Marquardt at the Max Planck Institute for the Science of Light. First release July 2026.</p>
+  </footer>
+
+</body>
+</html>

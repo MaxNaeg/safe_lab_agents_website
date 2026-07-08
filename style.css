@@ -1,0 +1,306 @@
+/* --- Tokens ---------------------------------------------------------- */
+:root {
+  --bg:        #000000;
+  --bg-soft:   #0a0a0a;
+  --fg:        #ffffff;
+  --fg:    #b8b8b8;
+  --accent:    #ff7a1a;         /* orange for step numbers + CTA */
+  --accent-hi: #ff9448;
+  --border:    rgba(255,255,255,0.10);
+
+  --font-sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --maxw: 1100px;
+  --pad:  clamp(1.25rem, 4vw, 2.5rem);
+}
+
+/* --- Reset ----------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 22px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img, svg, video { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; padding: 0; margin: 0; }
+
+/* --- Nav ------------------------------------------------------------- */
+.nav {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem var(--pad);
+  max-width: var(--maxw);
+  margin: 0 auto;
+}
+.nav__brand {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.nav__links {
+  display: flex;
+  gap: 1.75rem;
+  font-size: 0.95rem;
+  color: var(--fg);
+}
+.nav__links a:hover { color: var(--fg); }
+
+/* --- Hero ------------------------------------------------------------ */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.7;
+}
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.85) 70%, #000 100%),
+    linear-gradient(180deg, rgba(0,0,0,0.1) 0%, #000 100%);
+}
+.hero__content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: var(--maxw);
+  width: 100%;
+  margin: 0 auto;
+  padding: 4rem var(--pad) 6rem;
+}
+.hero__title {
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  margin: 0 0 1.5rem;
+}
+.hero__text {
+  font-size: 1.5rem;
+  color: var(--fg);
+  max-width: 62ch;
+  margin: 0 auto 1.25rem;
+  text-align: left;
+}
+.hero__text a { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
+.hero__text a:hover { color: var(--accent-hi); }
+
+.hero__figure {
+  margin: 2rem 0 0;
+  width: var(--fig-w, 60%);
+}
+.hero__figure img { width: 100%; height: auto; }
+.hero__figure--centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Buttons --------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.98rem;
+  transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease;
+  border: 1px solid transparent;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn--primary {
+  background: var(--accent);
+  color: #000;
+}
+.btn--primary:hover { background: var(--accent-hi); }
+.btn--ghost {
+  border-color: var(--border);
+  color: var(--fg);
+}
+.btn--ghost:hover { border-color: var(--fg); }
+
+/* --- Section shared -------------------------------------------------- */
+.section__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 0 0 3rem;
+}
+
+/* --- Steps ----------------------------------------------------------- */
+.steps {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 6rem var(--pad);
+}
+.steps__list {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+.step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "num  body"
+    "fig  fig";
+  gap: 1.5rem 1.75rem;
+  align-items: start;
+}
+.step__num {
+  grid-area: num;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 6px 24px rgba(255,122,26,0.35);
+}
+.step__body { grid-area: body; }
+.step__title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0.35rem 0 0.75rem;
+  color: var(--fg);
+}
+.step__text {
+  font-size: 1.5rem;
+  color: var(--fg);
+  margin: 0;
+  max-width: 60ch;
+}
+.step__figure {
+  grid-area: fig;
+  margin-top: 1rem;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+}
+.step__figure img { width: 100%; }
+
+/* --- Terminal code block inside a step ------------------------------ */
+.step__terminal {
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  background: #111;
+  color: #e8e8e8;
+  padding: 0.85rem 1.1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin: 0.5rem 0;
+  overflow-x: auto;
+}
+.step__terminal code::before { content: "$ "; color: var(--accent); }
+
+/* --- Learn more ------------------------------------------------------ */
+.learn {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 4rem var(--pad) 6rem;
+  text-align: center;
+}
+.learn__text {
+  font-size: 1.5rem;
+  color: var(--fg);
+  margin: 0.5rem 0;
+}
+.learn__text a {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.learn__text a:hover { border-bottom-color: var(--accent); }
+
+/* --- Video ----------------------------------------------------------- */
+.video {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 4rem var(--pad) 6rem;
+}
+.video__frame {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  aspect-ratio: 16 / 9;
+}
+.video__frame video,
+.video__frame iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 0;
+}
+
+/* --- Footer ---------------------------------------------------------- */
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 2.5rem var(--pad);
+  text-align: center;
+  color: var(--fg);
+  font-size: 1.5rem;
+}
+.footer p { margin: 0.25rem 0; }
+.footer a:hover { color: var(--fg); }
+
+/* --- Scroll-reveal (no JS, native CSS scroll-driven animation) ------ */
+@supports (animation-timeline: view()) {
+  .step {
+    animation: fade-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 40%;
+  }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Larger screens: put figure beside text ------------------------- */
+@media (min-width: 800px) {
+  .step {
+    grid-template-columns: auto minmax(0, 1fr) minmax(0, 1.2fr);
+    grid-template-areas: "num body fig";
+    gap: 2rem;
+    align-items: center;
+  }
+  .step__figure { margin-top: 0; }
+  .steps__list { gap: 6rem; }
+}
