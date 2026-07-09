@@ -167,7 +167,7 @@ ul, ol { list-style: none; padding: 0; margin: 0; }
 }
 .step {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: auto minmax(0, 1fr);
   grid-template-areas:
     "num  body"
     "fig  fig";
@@ -211,7 +211,7 @@ ul, ol { list-style: none; padding: 0; margin: 0; }
   border: 1px solid var(--border);
   background: var(--bg-soft);
 }
-.step__figure img { width: 100%; }
+.step__figure img { width: 100%; height: auto; display: block; }
 
 /* --- Terminal code block inside a step ------------------------------ */
 .step__terminal {
@@ -238,6 +238,7 @@ ul, ol { list-style: none; padding: 0; margin: 0; }
   font-size: 1.5rem;
   color: var(--fg);
   margin: 0.5rem 0;
+  overflow-wrap: break-word;
 }
 .learn__text a {
   color: var(--accent);
@@ -259,6 +260,7 @@ ul, ol { list-style: none; padding: 0; margin: 0; }
   font-size: 1.5rem;
   color: var(--fg);
   margin: 0.5rem 0;
+  overflow-wrap: break-word;
 }
 .discussion__text a {
   color: var(--accent);
