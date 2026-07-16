@@ -47,6 +47,14 @@ Conveniently browse both the full AI agent exploration history, as well as all e
 
 ---
 
+## Explore an example run
+
+[Full conversation of the agent calibrating an experiment](https://raw.githack.com/MaxNaeg/safe_lab_agents/main/example_setup/shared_calibration_example/conversation_safe_lab_agents.html)
+
+[Automatically generated lab notebook report](https://raw.githack.com/MaxNaeg/safe_lab_agents/main/example_setup/shared_calibration_example/auto_log/report_safe_lab_agents.html)
+
+---
+
 ## Learn more
 
 [github.com/MaxNaeg/safe_lab_agents](https://github.com/MaxNaeg/safe_lab_agents/)

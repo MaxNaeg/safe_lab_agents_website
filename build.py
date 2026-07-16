@@ -22,7 +22,11 @@ Content structure (sections separated by `---` on their own line):
         ## Section headline
         ![](assets/demo.mp4)    (or a YouTube/Vimeo URL)
 
-    Section 4 — Learn more (optional):
+    Section 4 — Example run (optional):
+        ## Explore an example run
+        [label](url)            (one big link per paragraph)
+
+    Section 5 — Learn more (optional):
         ## Learn more
         [label](url)            (rendered as a big link/CTA)
 
@@ -252,6 +256,20 @@ def render_video(tokens: list[dict]) -> dict:
     return {"video_title": inline_md(title), "video_embed": embed}
 
 
+def render_example(tokens: list[dict]) -> dict:
+    title = "Explore an example run"
+    parts: list[str] = []
+    for t in tokens:
+        if t["kind"] == "h2":
+            title = t["text"]
+        elif t["kind"] == "p":
+            parts.append(f'<p class="example__text">{inline_md(t["text"])}</p>')
+    return {
+        "example_title": inline_md(title),
+        "example_body": "\n      ".join(parts),
+    }
+
+
 def render_learn_more(tokens: list[dict]) -> dict:
     title = "Learn more"
     parts: list[str] = []
@@ -292,8 +310,9 @@ def build() -> None:
     hero_tok = tokenize(raw_sections[0])
     steps_tok = tokenize(raw_sections[1])
     video_tok = tokenize(raw_sections[2])
-    learn_tok = tokenize(raw_sections[3]) if len(raw_sections) > 3 else []
-    discussion_tok = tokenize(raw_sections[4]) if len(raw_sections) > 4 else []
+    example_tok = tokenize(raw_sections[3]) if len(raw_sections) > 3 else []
+    learn_tok = tokenize(raw_sections[4]) if len(raw_sections) > 4 else []
+    discussion_tok = tokenize(raw_sections[5]) if len(raw_sections) > 5 else []
     
     ctx: dict[str, str] = {
         "site_title": SITE_TITLE,
@@ -302,6 +321,7 @@ def build() -> None:
     ctx.update(render_hero(hero_tok))
     ctx["steps"] = render_steps(steps_tok)
     ctx.update(render_video(video_tok))
+    ctx.update(render_example(example_tok))
     ctx.update(render_learn_more(learn_tok))
     ctx.update(render_discussion(discussion_tok))
 
