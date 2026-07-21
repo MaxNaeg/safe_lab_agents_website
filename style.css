@@ -1,3 +1,19 @@
+/* --- Fonts (self-hosted, no external requests) ----------------------- */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 800;          /* variable font, covers all used weights */
+  font-display: swap;
+  src: url('assets/fonts/inter-latin-var.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('assets/fonts/jetbrainsmono-latin-var.woff2') format('woff2');
+}
+
 /* --- Tokens ---------------------------------------------------------- */
 :root {
   --bg:        #000000;
@@ -117,7 +133,8 @@ ul, ol { list-style: none; padding: 0; margin: 0; }
   margin: 2rem 0 0;
   width: 100%;               /* full width on phones */
 }
-.hero__figure img { width: 100%; height: auto; }
+.hero__figure img,
+.hero__figure video { width: 100%; height: auto; display: block; }
 .hero__figure--centered {
   margin-left: auto;
   margin-right: auto;
@@ -203,6 +220,8 @@ ul, ol { list-style: none; padding: 0; margin: 0; }
   margin: 0;
   max-width: 60ch;
 }
+.step__text a { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
+.step__text a:hover { color: var(--accent-hi); }
 .step__figure {
   grid-area: fig;
   margin-top: 1rem;

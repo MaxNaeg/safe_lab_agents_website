@@ -6,10 +6,6 @@
   <title>Safe Lab Agents</title>
   <meta name="description" content="Safely run AI agents inside a sandbox to control scientific experiments." />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -23,6 +19,7 @@
 
     <div class="hero__content">
       <h1 class="hero__title">Safe Lab Agents: Sandboxed AI Agents for Lab Work</h1>
+      <figure class="hero__figure hero__figure--centered" style="--fig-w: 80%"><video autoplay muted loop playsinline><source src="assets/demo_1min.mp4" type="video/mp4" /></video></figure>
       <p class="hero__text">Safely run an AI agent inside a sandbox to control a scientific experiment or a numerical simulation. Define the interface to the experiment easily in a few lines. Automatically obtain electronic lab notebook documentation of the entire runs. Supports Claude Code and OpenClaw as agent frameworks.</p>
       <p class="hero__text">By Maximilian Nägele and Florian Marquardt. Made at the <a href="https://mpl.mpg.de/divisions/marquardt-division/research" target="_blank" rel="noopener">Max Planck Institute for the Science of Light</a> in Germany. Open source and forever free. First release July 2026.</p>
       <figure class="hero__figure hero__figure--centered" style="--fig-w: 50%"><img src="assets/fig_main_points.png" alt="" /></figure>
@@ -39,6 +36,7 @@
           <h3 class="step__title">Install the package</h3>
           <p class="step__text">Simply use pip install. Also needed: Docker or Podman (for the sandboxing) and an account/API key for Claude Code or Open Claw.</p>
           <pre class="step__terminal"><code>pip install safe-lab-agents</code></pre>
+          <p class="step__text">Look at an <a href="https://github.com/MaxNaeg/safe_lab_agents/tree/main/example_setup" target="_blank" rel="noopener">example setup</a>.</p>
         </div>
         
       </li>
@@ -85,6 +83,7 @@
     <h2 class="section__title">Explore an example run</h2>
     <p class="example__text"><a href="https://raw.githack.com/MaxNaeg/safe_lab_agents/main/example_setup/shared_calibration_example/conversation_safe_lab_agents.html" target="_blank" rel="noopener">Full conversation of the agent calibrating an experiment</a></p>
       <p class="example__text"><a href="https://raw.githack.com/MaxNaeg/safe_lab_agents/main/example_setup/shared_calibration_example/auto_log/report_safe_lab_agents.html" target="_blank" rel="noopener">Automatically generated lab notebook report</a></p>
+      <p class="example__text"><a href="https://github.com/MaxNaeg/safe_lab_agents/tree/main/example_setup" target="_blank" rel="noopener">Example setup code</a></p>
   </section>
 
   <!-- LEARN MORE -->

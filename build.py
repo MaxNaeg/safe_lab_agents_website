@@ -171,9 +171,16 @@ def render_hero(tokens: list[dict]) -> dict:
             width_match = re.search(r"(\d+)%", hint)
             width = width_match.group(1) + "%" if width_match else "60%"
             cls = "hero__figure" + (" hero__figure--centered" if "centered" in hint else "")
+            src = t["src"]
+            if src.endswith((".mp4", ".webm", ".mov")):
+                media = (f'<video autoplay muted loop playsinline>'
+                         f'<source src="{html.escape(src)}" type="video/mp4" />'
+                         f'</video>')
+            else:
+                media = f'<img src="{html.escape(src)}" alt="{html.escape(t["alt"])}" />'
             subtitle_html_parts.append(
                 f'<figure class="{cls}" style="--fig-w: {width}">'
-                f'<img src="{html.escape(t["src"])}" alt="{html.escape(t["alt"])}" />'
+                f'{media}'
                 f'</figure>'
             )
 
